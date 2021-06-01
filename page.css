@@ -1,0 +1,65 @@
+html {
+    font-family: 'Convergence', Arial, sans-serif;
+    font-size: 0.9em;
+}
+
+@font-face{
+    font-family:'Convergence';
+    font-style:normal;
+    font-weight:400;
+    src: local("Convergence-Regular"), url("../Convergence-Regular.ttf") format("truetype");
+}
+
+.page[size="A4"] {
+    margin: 5mm 0 5mm 5mm;
+    box-shadow: 0 0 5mm rgba(0,0,0,0.5);
+    margin: 0 auto 0 auto;
+}
+
+.page > * {
+    padding: 5mm;
+}
+
+.page[size="A4"] {
+    width: 210mm;
+    height: 297mm;
+}
+
+.page[size="A4"].landscape {
+    width: 297mm;
+    height: 210mm;
+}
+
+.page[size="A4"].landscape.split {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+@media screen {
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+}
+
+@media print {
+    body {
+        margin: 0;
+    }
+    body *:not(.page, .page *) {
+        display: none;
+    }
+    button {
+        display: none;
+    }
+    .page {
+        margin: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        box-shadow: none !important;
+    }
+}
+
+@page {
+    margin: 0;
+}

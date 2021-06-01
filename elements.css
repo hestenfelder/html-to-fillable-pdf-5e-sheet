@@ -1,0 +1,216 @@
+:root {
+    --bg-checker-light: rgba(235,200,145,0.3);
+    --bg-checker-dark: rgba(215,180,125,0.3);
+}
+
+div {
+    box-sizing: border-box;
+}
+
+/* 5e.tools css stuff */
+
+.statblock-bg {
+    background-size: 100% auto;
+    background-color: #fdf1dc;
+}
+
+/* (checkerbox) grid */
+
+.grid {
+    display: grid;
+}
+
+.grid.odd > *:nth-child(2n+1),
+.grid.even > *:nth-child(2n) {
+    background: var(--bg-checker-dark);
+}
+.grid.odd > *:nth-child(2n),
+.grid.even > *:nth-child(2n+1) {
+    background: var(--bg-checker-light);
+}
+
+/* flex */
+
+.flex {
+    display: flex;
+}
+
+.flex.vertical {
+    flex-direction: column;
+    height: 100%;
+}
+
+.flex.vertical.fit {
+    height: fit-content;
+}
+
+/* delimiter */
+
+.delimiter {
+    height: 1mm;
+}
+
+/* checkerbox non-virtuals */
+
+.grid.header {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 1mm;
+}
+.grid.header.two {
+    grid-template-columns: 50% 50%;
+}
+
+.grid.body {
+    column-gap: 1mm;
+}
+.grid.body.two {
+    grid-template-columns: 1fr 1fr;
+}
+.grid.body.grow {
+    flex-grow: 1;
+}
+
+.area-header {
+    padding-left: .5mm;
+    border-bottom: .39mm solid black;
+}
+.area-header.highlighted {
+    background: var(--bg-checker-dark);
+}
+
+.grid.attributes {
+    grid-template-columns: 1fr 10mm 10mm;
+}
+
+.grid.savingthrows {
+    grid-template-columns: 4mm 10mm;
+}
+
+.grid.health {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid.base-stats.header {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1mm;
+}
+
+.grid.stats,
+.grid.spells.header {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 1mm;
+}
+
+.grid.spells.slots {
+    grid-template-columns: 35mm 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid.skill {
+    grid-template-columns: 4mm 10mm 1fr;
+}
+.grid.skill > .label,
+.grid.attributes > .label:not(.area-header),
+.grid.savingthrows > .label:not(.area-header),
+.grid.stats > .label:not(.area-header),
+.grid.spells.slots > .label:not(.area-header) {
+    padding-left: 1.5mm;
+    padding-right: 1.5mm;
+}
+
+.skilltype {
+    color: gray;
+    font-size: 7pt;
+    text-align: center;
+    padding-left: .5mm;
+}
+
+.grid.tracks {
+    grid-template-columns: 65% 1fr;
+}
+
+.text {
+    text-align: justify;
+    padding-left: 1mm;
+    padding-right: 1mm;
+    margin-block-start: 1mm;
+    margin-block-end: 1mm;
+}
+.text.small { font-size: 8pt; }
+.text ol, .text ul {
+    margin-block-start: 1mm;
+    margin-block-end: 1mm;
+    padding-inline-start: 5mm;
+}
+
+.grid.reference-body {
+    flex-grow: 1;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2mm;
+}
+
+.grid.items.general {
+    grid-template-columns: 1fr 22.5%;
+}
+.grid.items.weapons {
+    grid-template-columns: 1fr 10mm 20mm;
+}
+.grid.items.armor {
+    grid-template-columns: 1fr 25% 22.5%;
+}
+.grid.items > .label {
+    padding-left: 1mm;
+}
+.grid.items > .label.right {
+    padding-right: 1mm;
+}
+
+.grid.spells.weapons {
+    grid-template-columns: 1fr 10mm 20mm;
+}
+
+.grid.statblock {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.grid.npcinfo {
+    grid-template-columns: 27.5% 1fr;
+    margin-top: .5mm;
+}
+.grid.npcinfo > .label {
+    display: block;
+    padding-left: .5mm;
+}
+.grid.quicknpc {
+    grid-template-columns: 30% 1fr 1fr 1fr;
+}
+
+/* field */
+
+.field {
+    padding: 0;
+    margin: 0;
+    height: 6mm;
+}
+.field.small { height: 5mm; }
+.field.center { padding: 0; }
+
+/* label */
+
+.label {
+    display: flex;
+    align-items: center;
+    font-size: 9pt;
+}
+.label.small { font-size: 8pt; }
+.label.tiny { font-size: 6pt; }
+.label.center { justify-content: center; }
+.label.right { justify-content: flex-end; }
+
+/* textarea */
+
+.textarea {
+    flex-grow: 1;
+    background: var(--bg-checker-dark);
+}
+
+.textarea[name="talents"] { flex-grow: 1.5; }
+.textarea[name="powers"] { flex-grow: 1.5; }

@@ -1,0 +1,393 @@
+<meta charset="utf-8"/>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="page.css">
+        <link rel="stylesheet" type="text/css" href="elements.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="createLatex();" style="font-size: 20px; margin: 8px;">Create LaTeX</button>
+        </div>
+        <div class="page landscape split statblock-bg" size="A4">
+            <div class="flex vertical">
+                <div class="grid header">
+                    <div class="label area-header">Name</div>
+                    <div class="label area-header">Class</div>
+                    <div class="label area-header">Race</div>
+                    <div class="label area-header">Background</div>
+                </div>
+                <div class="grid odd header">
+                    <div class="field small" name="charname"></div>
+                    <div class="field small" name="class"></div>
+                    <div class="field small" name="race"></div>
+                    <div class="field small" name="background"></div>
+                </div>
+                <div class="delimiter"></div>
+                <div class="grid body two" style="grid-template-columns: min-content 1fr;">
+                    <div class="grid body two" style="grid-template-columns: 44mm min-content;">
+                        <div class="flex vertical">
+                            <div class="grid attributes">
+                                <div class="label area-header">Attributes</div>
+                                <div class="label area-header"></div>
+                                <div class="label tiny center area-header">(MOD)</div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Strength</div>
+                                <div class="field center" name="strength"></div>
+                                <div class="field center" name="strengthmod"></div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Dexterity</div>
+                                <div class="field center" name="dexterity"></div>
+                                <div class="field center" name="dexteritymod"></div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Constitution</div>
+                                <div class="field center" name="constitution"></div>
+                                <div class="field center" name="constitutionmod"></div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Intelligence</div>
+                                <div class="field center" name="intelligence"></div>
+                                <div class="field center" name="intelligencemod"></div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Wisdom</div>
+                                <div class="field center" name="wisdom"></div>
+                                <div class="field center" name="wisdommod"></div>
+                            </div>
+                            <div class="grid even attributes">
+                                <div class="label">Charisma</div>
+                                <div class="field center" name="charisma"></div>
+                                <div class="field center" name="charismamod"></div>
+                            </div>
+                        </div>
+                        <div class="flex vertical">
+                            <div class="label area-header">Saves</div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="strstprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="strst"></div>
+                            </div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="dexstprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="dexst"></div>
+                            </div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="constprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="const"></div>
+                            </div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="intstprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="intst"></div>
+                            </div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="wisstprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="wisst"></div>
+                            </div>
+                            <div class="grid odd savingthrows">
+                                <svg class="checkbox" width="4mm" height="6mm" name="chastprof">
+                                    <circle cx="2mm" cy="3mm" r="1mm" stroke="black" stroke-width="1px" fill="white"></circle>
+                                </svg>
+                                <div class="field center" name="chast"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex vertical">
+                        <div class="grid header">
+                            <div class="label center area-header">BONUS</div>
+                            <div class="label center area-header">AC</div>
+                            <div class="label center area-header">INI</div>
+                            <div class="label center area-header">SPEED</div>
+                        </div>
+                        <div class="grid odd header">
+                            <div class="field center" name="proficiencybonus"></div>
+                            <div class="field center" name="armorclass"></div>
+                            <div class="field center" name="initiative"></div>
+                            <div class="field center" name="speed"></div>
+                        </div>
+                        <div class="delimiter"></div>
+                        <div class="grid body two">
+                            <div class="flex vertical">
+                                <div class="grid health">
+                                    <div class="label area-header">Hit-Points</div>
+                                    <div class="label tiny center area-header">(MAX)</div>
+                                </div>
+                                <div class="grid odd health">
+                                    <div class="field center" name="hitpointscurrent"></div>
+                                    <div class="field center" name="hitpointsmaximum"></div>
+                                </div>
+                            </div>
+                            <div class="flex vertical">
+                                <div class="grid health">
+                                    <div class="label area-header">Hit-Dice</div>
+                                    <div class="label tiny center area-header">(MAX)</div>
+                                </div>
+                                <div class="grid odd health">
+                                    <div class="field center" name="hitdicemaximum"></div>
+                                    <div class="field center" name="hitdicecurrent"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delimiter"></div>
+                        <div class="flex vertical" style="margin-top: auto; height: min-content;">
+                            <div class="grid items weapons">
+                                <div class="label area-header">Weapons & Spells</div>
+                                <div class="label tiny center area-header">Bonus</div>
+                                <div class="label tiny center area-header">Damage</div>
+                            </div>
+                            <div class="grid odd items weapons">
+                                <div class="field small" name="weaponname1"></div>
+                                <div class="field small center" name="weaponbonus1"></div>
+                                <div class="field small center" name="weapondamage1"></div>
+                            </div>
+                            <div class="grid even items weapons">
+                                <div class="field small" name="weaponname2"></div>
+                                <div class="field small center" name="weaponbonus2"></div>
+                                <div class="field small center" name="weapondamage2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="delimiter"></div>
+                <div class="grid body two grow" style="grid-template-columns: 1fr 1.9fr;">
+                    <div class="flex vertical">
+                        <div class="label area-header">Skills</div>
+                        <div class="grid even skill" style="border-bottom: .39mm dashed gray;">
+                            <svg class="checkbox" width="4mm" height="5mm" name="athleticsprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="athletics"></div>
+                            <div class="label small">Athletics<span class="skilltype">(STR)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="acrobaticsprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="acrobatics"></div>
+                            <div class="label small">Acrobatics<span class="skilltype">(DEX)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="sleightofhandprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="sleightofhand"></div>
+                            <div class="label small">Sleight of Hand<span class="skilltype">(DEX)</span></div>
+                        </div>
+                        <div class="grid odd skill" style="border-bottom: .39mm dashed gray;">
+                            <svg class="checkbox" width="4mm" height="5mm" name="stealthprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="stealth"></div>
+                            <div class="label small">Stealth<span class="skilltype">(DEX)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="arcanaprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="arcana"></div>
+                            <div class="label small">Arcana<span class="skilltype">(INT)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="historyprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="history"></div>
+                            <div class="label small">History<span class="skilltype">(INT)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="investigationprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="investigation"></div>
+                            <div class="label small">Investigation<span class="skilltype">(INT)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="natureprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="nature"></div>
+                            <div class="label small">Nature<span class="skilltype">(INT)</span></div>
+                        </div>
+                        <div class="grid even skill" style="border-bottom: .39mm dashed gray;">
+                            <svg class="checkbox" width="4mm" height="5mm" name="religionprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="religion"></div>
+                            <div class="label small">Religion<span class="skilltype">(INT)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="animalhandlingprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="animalhandling"></div>
+                            <div class="label small">Animal Handling<span class="skilltype">(WIS)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="insightprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="insight"></div>
+                            <div class="label small">Insight<span class="skilltype">(WIS)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="medicineprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="medicine"></div>
+                            <div class="label small">Medicine<span class="skilltype">(WIS)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="perceptionprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="perception"></div>
+                            <div class="label small">Perception<span class="skilltype">(WIS)</span></div>
+                        </div>
+                        <div class="grid odd skill" style="border-bottom: .39mm dashed gray;">
+                            <svg class="checkbox" width="4mm" height="5mm" name="survivalprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="survival"></div>
+                            <div class="label small">Survival<span class="skilltype">(WIS)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="deceptionprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="deception"></div>
+                            <div class="label small">Deception<span class="skilltype">(CHA)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="intimidationprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="intimidation"></div>
+                            <div class="label small">Intimidation<span class="skilltype">(CHA)</span></div>
+                        </div>
+                        <div class="grid even skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="performanceprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="performance"></div>
+                            <div class="label small">Performance<span class="skilltype">(CHA)</span></div>
+                        </div>
+                        <div class="grid odd skill">
+                            <svg class="checkbox" width="4mm" height="5mm" name="persuasionprof">
+                                <circle cx="2mm" cy="2.5mm" r="1mm" stroke="black" stroke-width="1px" fill="white"/>
+                            </svg>
+                            <div class="field small center" name="persuasion"></div>
+                            <div class="label small">Persuasion<span class="skilltype">(CHA)</span></div>
+                        </div>
+                        <div class="delimiter"></div>
+                        <div class="label area-header">Proficiencies</div>
+                        <div class="textarea" name="otherproficiencies"></div>
+                        <div class="delimiter"></div>
+                        <div class="label area-header">Equipment</div>
+                        <div class="textarea" name="equipment"></div>
+                    </div>
+                    <div class="flex vertical">
+                        <div class="label area-header">Traits</div>
+                        <div class="textarea" name="traits"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex vertical">
+                <div class="grid spells header">
+                    <div class="label area-header">Spellcasting Class</div>
+                    <div class="label area-header">Spellcasting Ability</div>
+                    <div class="label area-header">Spell Save DC</div>
+                    <div class="label area-header">Spell Attack Bonus</div>
+                </div>
+                <div class="grid odd spells header">
+                    <div class="field small" name="spellcastingclass"></div>
+                    <div class="field small" name="spellcastingability"></div>
+                    <div class="field small center" name="spellsavedc"></div>
+                    <div class="field small center" name="spellattackbonus"></div>
+                </div>
+                <div class="delimiter"></div>
+                <div class="grid spells slots">
+                    <div class="label area-header">Spell Slots per Level</div>
+                    <div class="label small center area-header">Level 1</div>
+                    <div class="label small center area-header">Level 2</div>
+                    <div class="label small center area-header">Level 3</div>
+                    <div class="label small center area-header">Level 4</div>
+                    <div class="label small center area-header">Level 5</div>
+                    <div class="label small center area-header">Level 6</div>
+                    <div class="label small center area-header">Level 7</div>
+                    <div class="label small center area-header">Level 8</div>
+                    <div class="label small center area-header">Level 9</div>
+                </div>
+                <div class="grid odd spells slots" style="border-bottom: .39mm dashed gray;">
+                    <div class="label small">Slots Total</div>
+                    <div class="field small center" name="spells1max"></div>
+                    <div class="field small center" name="spells2max"></div>
+                    <div class="field small center" name="spells3max"></div>
+                    <div class="field small center" name="spells4max"></div>
+                    <div class="field small center" name="spells5max"></div>
+                    <div class="field small center" name="spells6max"></div>
+                    <div class="field small center" name="spells7max"></div>
+                    <div class="field small center" name="spells8max"></div>
+                    <div class="field small center" name="spells9max"></div>
+                </div>
+                <div class="grid odd spells slots">
+                    <div class="label small">Slots Expended</div>
+                    <div class="field small center" name="spells1exp"></div>
+                    <div class="field small center" name="spells2exp"></div>
+                    <div class="field small center" name="spells3exp"></div>
+                    <div class="field small center" name="spells4exp"></div>
+                    <div class="field small center" name="spells5exp"></div>
+                    <div class="field small center" name="spells6exp"></div>
+                    <div class="field small center" name="spells7exp"></div>
+                    <div class="field small center" name="spells8exp"></div>
+                    <div class="field small center" name="spells9exp"></div>
+                </div>
+                <div class="delimiter"></div>
+                <div class="grid reference-body">
+                    <div class="flex vertical">
+                        <div class="label small area-header">Cantrips</div>
+                        <div class="textarea" name="spells0"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 1</div>
+                        <div class="textarea" name="spells1"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 2</div>
+                        <div class="textarea" name="spells2"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 3</div>
+                        <div class="textarea" name="spells3"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 4</div>
+                        <div class="textarea" name="spells4"></div>
+                    </div>
+                    <div class="flex vertical">
+                        <div class="label small area-header">Spells Level 5</div>
+                        <div class="textarea" name="spells5"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 6</div>
+                        <div class="textarea" name="spells6"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 7</div>
+                        <div class="textarea" name="spells7"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 8</div>
+                        <div class="textarea" name="spells8"></div>
+                        <div class="delimiter"></div>
+                        <div class="label small area-header">Spells Level 9</div>
+                        <div class="textarea" name="spells9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
